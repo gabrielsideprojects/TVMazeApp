@@ -48,7 +48,6 @@ export function EpisodeScreen() {
         renderItem={({item}) => (
           <Card
             name={item.name}
-            id={item.id}
             onCardPress={() =>
               navigation.navigate('EpisodeDetails', {data: item})
             }

@@ -8,6 +8,7 @@ export const Container = styled(SafeAreaView)`
 
 export const Information = styled.Text`
   margin-bottom: ${({theme}) => theme.spacing.medium}px;
+  color: ${({theme}) => theme.colors.black};
 `;
 
 export const Title = styled.Text`

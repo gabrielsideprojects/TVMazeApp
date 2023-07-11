@@ -34,16 +34,20 @@ export function EpisodeDetails({route, navigation}: Props) {
             <Information>Number: {number}</Information>
             <Information>Season: {season}</Information>
           </InfoContent>
-          <LogoImage
-            source={{
-              uri: image?.medium,
-            }}
-          />
+          {image ? (
+            <LogoImage
+              source={{
+                uri: image?.medium,
+              }}
+            />
+          ) : null}
         </InfoContainer>
-        <SummaryContainer>
-          <SummaryTitleText>Summary:</SummaryTitleText>
-          <RenderHtml contentWidth={200} source={{html: summary}} />
-        </SummaryContainer>
+        {summary ? (
+          <SummaryContainer>
+            <SummaryTitleText>Summary:</SummaryTitleText>
+            <RenderHtml contentWidth={200} source={{html: summary}} />
+          </SummaryContainer>
+        ) : null}
       </ScrollView>
     </Container>
   );

@@ -19,7 +19,6 @@ import {
   ListViews,
   LogoImage,
   ModalView,
-  SeasonListItem,
   SeasonTitle,
   SeeSummaryInfo,
   SummaryButton,
@@ -29,7 +28,7 @@ import {ActivityIndicator} from 'react-native-paper';
 
 import RenderHtml from 'react-native-render-html';
 import {useGetSeasons} from '../../hooks/useGetSeasons/useGetSeasons';
-import {BackButton} from '../../components/BackButton';
+import {CloseButton} from '../../components/CloseButton';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'SeriesDetails'>;
 
@@ -66,12 +65,9 @@ export function SeriesDetails({route, navigation}: Props) {
           renderItem={({item}) => (
             <Card
               name={item.name}
-              id={item.id}
               onCardPress={() =>
                 navigation.navigate('EpisodeDetails', {
                   data: item,
-                  showId: id,
-                  seasonNumber: seasonId,
                 })
               }
             />
@@ -91,17 +87,19 @@ export function SeriesDetails({route, navigation}: Props) {
       <ListViews>
         <FlatList
           data={data}
+          ItemSeparatorComponent={Divider}
           renderItem={({item}) => {
             return (
-              <SeasonListItem
+              <Card
                 key={item.id}
-                onPress={() => {
+                iconName="angle-down"
+                name={`Season: ${String(item.number)}`}
+                onCardPress={() => {
                   setIsSeasonModalVisible(false);
                   setSeasonId(item.id);
                   setSeasonNumber(item.number);
-                }}>
-                <Text>{item.number}</Text>
-              </SeasonListItem>
+                }}
+              />
             );
           }}
         />
@@ -149,7 +147,7 @@ export function SeriesDetails({route, navigation}: Props) {
           isVisible={isSummaryModalVisible}
           backdropColor={'white'}>
           <ModalView>
-            <BackButton onPress={() => setIsSummaryModalVisible(false)} />
+            <CloseButton onPress={() => setIsSummaryModalVisible(false)} />
             <RenderHtml contentWidth={200} source={{html: summary}} />
           </ModalView>
         </Modal>
@@ -159,7 +157,7 @@ export function SeriesDetails({route, navigation}: Props) {
           isVisible={isSeasonModalVisible}
           backdropColor={'white'}>
           <ModalView>
-            <BackButton onPress={() => setIsSeasonModalVisible(false)} />
+            <CloseButton onPress={() => setIsSeasonModalVisible(false)} />
             {renderSeasonModalList()}
           </ModalView>
         </Modal>

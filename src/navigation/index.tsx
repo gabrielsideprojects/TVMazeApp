@@ -13,7 +13,7 @@ export type RootStackParamList = {
   Home: undefined;
 
   SeriesDetails: {data: Serie};
-  EpisodeDetails: {data: Episode; showId: number; seasonNumber: number};
+  EpisodeDetails: {data: Episode};
   SeriesFiltersScreen: undefined;
 };
 
