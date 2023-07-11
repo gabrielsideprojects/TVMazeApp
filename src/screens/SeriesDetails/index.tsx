@@ -55,6 +55,7 @@ export function SeriesDetails({route, navigation}: Props) {
 
         <FlatList
           data={episodesListOfThatSeason}
+          showsVerticalScrollIndicator={false}
           ListEmptyComponent={
             <CenteredView>
               <EmptyEpisodeListText>
@@ -88,6 +89,7 @@ export function SeriesDetails({route, navigation}: Props) {
         <FlatList
           data={data}
           ItemSeparatorComponent={Divider}
+          showsVerticalScrollIndicator={false}
           renderItem={({item}) => {
             return (
               <Card
@@ -122,10 +124,13 @@ export function SeriesDetails({route, navigation}: Props) {
             Schedule:{' '}
             {`time: ${schedule.time}\nDays:\n${schedule.days.join(',')}`}
           </Information>
-          <SummaryButton onPress={() => setIsSummaryModalVisible(true)}>
-            <Information>Summary:</Information>
-            <SeeSummaryInfo>See summary</SeeSummaryInfo>
-          </SummaryButton>
+          {summary ? (
+            <SummaryButton onPress={() => setIsSummaryModalVisible(true)}>
+              <Information>Summary:</Information>
+              <SeeSummaryInfo>See summary</SeeSummaryInfo>
+            </SummaryButton>
+          ) : null}
+
           <SummaryButton onPress={() => setIsSeasonModalVisible(true)}>
             <Information>Seasons: </Information>
             <SeeSummaryInfo>Select season</SeeSummaryInfo>
@@ -145,6 +150,7 @@ export function SeriesDetails({route, navigation}: Props) {
           hasBackdrop
           backdropOpacity={1}
           isVisible={isSummaryModalVisible}
+          onBackButtonPress={() => setIsSummaryModalVisible(false)}
           backdropColor={'white'}>
           <ModalView>
             <CloseButton onPress={() => setIsSummaryModalVisible(false)} />
@@ -154,6 +160,7 @@ export function SeriesDetails({route, navigation}: Props) {
         <Modal
           hasBackdrop
           backdropOpacity={1}
+          onBackButtonPress={() => setIsSeasonModalVisible(false)}
           isVisible={isSeasonModalVisible}
           backdropColor={'white'}>
           <ModalView>
