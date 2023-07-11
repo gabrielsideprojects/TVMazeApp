@@ -3,11 +3,10 @@ import {StyleSheet} from 'react-native';
 import {SeriesListScreen} from '../screens/SeriesList';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {EpisodeScreen} from '../screens/Episode';
+import {SearchPeopleListScreen} from '../screens/SearchPeopleListScreen';
 import {FavoritesSeriesScreen} from '../screens/FavoritesSeries';
 import {SearchSeriesListScreen} from '../screens/SearchSeriesList';
 
@@ -34,10 +33,11 @@ function Tabs() {
         }}
       />
       <Tab.Screen
-        name="EpisodeScreen"
-        component={EpisodeScreen}
+        name="SearchPeopleListScreen"
+        component={SearchPeopleListScreen}
         options={{
-          tabBarLabel: 'Episodes',
+          tabBarLabel: 'People',
+          tabBarHideOnKeyboard: true,
           tabBarIcon: ({color}) => (
             <MaterialIcons name="movie" size={25} color={color} />
           ),
