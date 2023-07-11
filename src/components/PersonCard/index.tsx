@@ -22,7 +22,13 @@ export function PersonCard({person, onPersonCardPress}: PersonCardProps) {
             uri: image.medium,
           }}
         />
-      ) : null}
+      ) : (
+        <Persona
+          source={{
+            uri: 'https://i.pravatar.cc/150',
+          }}
+        />
+      )}
 
       <Content>
         <InfoContent>

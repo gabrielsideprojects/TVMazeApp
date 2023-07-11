@@ -19,7 +19,7 @@ function Tabs() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: styles.bar,
-        tabBarActiveTintColor: '#e89ac7',
+        tabBarActiveTintColor: '#00008b',
         tabBarInactiveTintColor: '#44281d',
       }}>
       <Tab.Screen
@@ -28,7 +28,7 @@ function Tabs() {
         options={{
           tabBarLabel: 'Series',
           tabBarIcon: ({color}) => (
-            <Icon name="users" size={20} color={color} />
+            <MaterialIcons name="movie" size={25} color={color} />
           ),
         }}
       />
@@ -39,7 +39,7 @@ function Tabs() {
           tabBarLabel: 'People',
           tabBarHideOnKeyboard: true,
           tabBarIcon: ({color}) => (
-            <MaterialIcons name="movie" size={25} color={color} />
+            <Icon name="users" size={20} color={color} />
           ),
         }}
       />
