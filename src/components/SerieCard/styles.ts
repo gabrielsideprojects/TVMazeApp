@@ -32,7 +32,8 @@ export const Tag = styled.View`
   background-color: ${({theme}) => theme.colors.yellow};
 `;
 
-export const FavoriteContainer = styled.TouchableOpacity`
+export const IconContainer = styled.TouchableOpacity`
+  flex-direction: row;
   margin-top: ${({theme}) => theme.spacing.medium}px;
   padding: ${({theme}) => theme.spacing.medium}px;
   margin-right: ${({theme}) => theme.spacing.medium}px;

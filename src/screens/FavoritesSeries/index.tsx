@@ -19,11 +19,11 @@ export function FavoritesSeriesScreen() {
       <FlatList
         ItemSeparatorComponent={Divider}
         data={favoriteSeries}
-        keyExtractor={item => item?.id}
+        keyExtractor={item => String(item?.id)}
         renderItem={({item}) => (
           <SerieCard
             serie={item}
-            key={item.id}
+            isFavoriteItem
             onSeriePress={() => {
               navigation.navigate('SeriesDetails', {data: item});
             }}

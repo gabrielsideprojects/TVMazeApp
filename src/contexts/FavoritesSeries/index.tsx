@@ -22,7 +22,12 @@ export function FavoriteSeriesProvider({children}: PropsWithChildren) {
       setFavoriteSeries(JSON.parse(favChars));
     }
   }
-
+  function deleteSeriesFromFavorite(id: number) {
+    setFavoriteSeries(favoriteSeries.filter(favSerie => favSerie.id !== id));
+  }
+  function addSeries(serie: Serie) {
+    setFavoriteSeries(prevFavSeries => [...prevFavSeries, serie]);
+  }
   useEffect(() => {
     getFavoriteSeries();
   }, []);
@@ -36,6 +41,8 @@ export function FavoriteSeriesProvider({children}: PropsWithChildren) {
       value={{
         favoriteSeries,
         setFavoriteSeries,
+        deleteSeriesFromFavorite,
+        addSeries,
       }}>
       {children}
     </FavoritesSeriesContext.Provider>
