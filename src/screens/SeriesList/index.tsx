@@ -29,7 +29,6 @@ export function SeriesListScreen() {
   const series = getDataFromAllSeriesPages(data);
 
   function renderContent() {
-    console.log('isLoading', isLoading);
     if (isLoading) {
       return <ActivityIndicator />;
     }
@@ -45,7 +44,6 @@ export function SeriesListScreen() {
     return (
       <Container>
         <Header
-          isFilterIconVisible
           onPressFilterIcon={() => navigation.navigate('SeriesFiltersScreen')}
         />
 
@@ -55,7 +53,7 @@ export function SeriesListScreen() {
           data={series}
           refreshing={isRefetching}
           onRefresh={refetch}
-          keyExtractor={item => item?.id}
+          keyExtractor={item => String(item.id)}
           renderItem={({item}) => (
             <SerieCard
               serie={item}

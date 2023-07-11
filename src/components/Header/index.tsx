@@ -1,12 +1,10 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Button, Container, Content, Title} from './styles';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {Pressable} from 'react-native';
 
 interface HeaderProps {
   isBackVisible?: boolean;
-  isFilterIconVisible?: boolean;
+
   onBackPress?: () => void;
   onPressFilterIcon?: () => void;
   title?: string;
@@ -16,8 +14,6 @@ export function Header({
   isBackVisible = false,
   onBackPress,
   title = 'TVMaze',
-  isFilterIconVisible,
-  onPressFilterIcon,
 }: HeaderProps) {
   return (
     <Container>
@@ -30,12 +26,6 @@ export function Header({
       ) : null}
       <Content>
         <Title>{title}</Title>
-
-        {isFilterIconVisible ? (
-          <Pressable onPress={onPressFilterIcon}>
-            <MaterialIcons name="filter-list" size={25} color={'black'} />
-          </Pressable>
-        ) : null}
       </Content>
     </Container>
   );

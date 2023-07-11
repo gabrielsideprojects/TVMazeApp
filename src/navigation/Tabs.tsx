@@ -9,6 +9,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {EpisodeScreen} from '../screens/Episode';
 import {FavoritesSeriesScreen} from '../screens/FavoritesSeries';
+import {SearchSeriesListScreen} from '../screens/SearchSeriesList';
 
 const Tab = createBottomTabNavigator();
 
@@ -49,6 +50,17 @@ function Tabs() {
           tabBarLabel: 'Favorites',
           tabBarIcon: ({color}) => (
             <MaterialIcons name="favorite" size={25} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="SearchSeriesList"
+        component={SearchSeriesListScreen}
+        options={{
+          tabBarHideOnKeyboard: true,
+          tabBarLabel: 'Search',
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="search" size={25} color={color} />
           ),
         }}
       />

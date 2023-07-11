@@ -13,6 +13,10 @@ export interface Serie {
   summary: string;
 }
 
+export interface SearchedSerie {
+  show: Serie;
+}
+
 export interface Characters {
   info: {
     count: number;
