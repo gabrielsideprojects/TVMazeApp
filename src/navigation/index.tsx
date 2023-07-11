@@ -8,10 +8,12 @@ import {Serie} from '../types/series';
 import {Episode} from '../types/episodes';
 
 import Tabs from './Tabs';
+import {Person} from '../types/person';
+import {PersonDetailsScreen} from '../screens/PersonDetails';
 
 export type RootStackParamList = {
   Home: undefined;
-
+  PersonDetails: {data: Person};
   SeriesDetails: {data: Serie};
   EpisodeDetails: {data: Episode};
   SeriesFiltersScreen: undefined;
@@ -33,6 +35,7 @@ export function AppNavigator() {
 
         <Stack.Screen name="SeriesDetails" component={SeriesDetails} />
         <Stack.Screen name="EpisodeDetails" component={EpisodeDetails} />
+        <Stack.Screen name="PersonDetails" component={PersonDetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

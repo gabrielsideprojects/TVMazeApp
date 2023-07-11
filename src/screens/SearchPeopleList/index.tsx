@@ -25,7 +25,7 @@ export function SearchPeopleListScreen() {
   const {data, isError, refetch, isRefetching} =
     useGetSearchPeople(debouncedFiltertext);
 
-  // const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   function renderContent() {
     if (isError) {
@@ -61,7 +61,14 @@ export function SearchPeopleListScreen() {
           }
           onRefresh={refetch}
           keyExtractor={item => String(item.person.id)}
-          renderItem={({item}) => <PersonCard person={item.person} />}
+          renderItem={({item}) => (
+            <PersonCard
+              onPersonCardPress={() =>
+                navigation.navigate('PersonDetails', {data: item.person})
+              }
+              person={item.person}
+            />
+          )}
         />
       </Container>
     );

@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {SearchPeopleListScreen} from '../screens/SearchPeopleListScreen';
+import {SearchPeopleListScreen} from '../screens/SearchPeopleList';
 import {FavoritesSeriesScreen} from '../screens/FavoritesSeries';
 import {SearchSeriesListScreen} from '../screens/SearchSeriesList';
 
