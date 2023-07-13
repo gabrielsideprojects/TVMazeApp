@@ -61,6 +61,10 @@ export const ListDivider = styled.View`
   border-width: 0.4px;
 `;
 
+export const ModalScrollView = styled.ScrollView`
+  flex: 1;
+  margin-vertical: 20px;
+`;
 export const ModalView = styled.View`
   flex: 1;
   margin-vertical: 20px;

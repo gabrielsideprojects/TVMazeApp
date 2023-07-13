@@ -18,6 +18,7 @@ import {
   Information,
   ListViews,
   LogoImage,
+  ModalScrollView,
   ModalView,
   SeasonTitle,
   SeeSummaryInfo,
@@ -152,10 +153,10 @@ export function SeriesDetails({route, navigation}: Props) {
           isVisible={isSummaryModalVisible}
           onBackButtonPress={() => setIsSummaryModalVisible(false)}
           backdropColor={'white'}>
-          <ModalView>
+          <ModalScrollView showsVerticalScrollIndicator={false}>
             <CloseButton onPress={() => setIsSummaryModalVisible(false)} />
             <RenderHtml contentWidth={200} source={{html: summary}} />
-          </ModalView>
+          </ModalScrollView>
         </Modal>
         <Modal
           hasBackdrop

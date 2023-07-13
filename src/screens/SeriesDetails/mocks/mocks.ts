@@ -1,30 +1,25 @@
-export const characterDetailsMock = {
-    created: 'string',
-    episode: ['teste'],
-    gender: 'M',
-    id: '123',
-    image: 'https://url.com',
-    location: {
-        name: 'name',
-        url: 'url'
-    },
-    name: 'Ricky',
-    origin: {
-        name: 'originName',
-        url: 'originUrl'
-    },
-    species: 'specie',
-    status: 'Status',
-    type: 'Type',
-    url: 'url'
-}
+import {Serie} from '../../../types/series';
 
-export const episodeListMock = [{
+export const serieDetailMock: Serie = {
+  id: 0,
+  name: 'Serie',
+  image: {
+    medium: 'https://doe.com',
+    original: 'https://doe.com',
+  },
+  genres: ['Drama'],
+  schedule: {time: '9:00', days: ['Monday']},
+  summary: 'Summary',
+};
+
+export const episodeListMock = [
+  {
     id: '123',
     name: 'Humberto',
     air_date: 'date',
     episode: '44',
     characters: ['Morty'],
     url: 'https://fakeUrl.com',
-    created: 'created'
-}]
+    created: 'created',
+  },
+];
